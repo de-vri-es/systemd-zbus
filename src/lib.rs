@@ -1,4 +1,4 @@
-//! Upstream docs - https://www.freedesktop.org/software/systemd/man/org.freedesktop.systemd1.html
+//! Upstream docs - <https://www.freedesktop.org/software/systemd/man/org.freedesktop.systemd1.html>
 
 mod generated;
 pub use generated::*;
