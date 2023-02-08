@@ -458,11 +458,11 @@ trait Manager {
 
     /// DefaultBlockIOAccounting property
     #[dbus_proxy(property, name = "DefaultBlockIOAccounting")]
-    fn default_block_ioaccounting(&self) -> zbus::Result<bool>;
+    fn default_block_io_accounting(&self) -> zbus::Result<bool>;
 
     /// DefaultCPUAccounting property
     #[dbus_proxy(property, name = "DefaultCPUAccounting")]
-    fn default_cpuaccounting(&self) -> zbus::Result<bool>;
+    fn default_cpu_accounting(&self) -> zbus::Result<bool>;
 
     /// DefaultLimitAS property
     #[dbus_proxy(property, name = "DefaultLimitAS")]
@@ -470,7 +470,7 @@ trait Manager {
 
     /// DefaultLimitASSoft property
     #[dbus_proxy(property, name = "DefaultLimitASSoft")]
-    fn default_limit_assoft(&self) -> zbus::Result<u64>;
+    fn default_limit_as_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitCORE property
     #[dbus_proxy(property, name = "DefaultLimitCORE")]
@@ -478,7 +478,7 @@ trait Manager {
 
     /// DefaultLimitCORESoft property
     #[dbus_proxy(property, name = "DefaultLimitCORESoft")]
-    fn default_limit_coresoft(&self) -> zbus::Result<u64>;
+    fn default_limit_core_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitCPU property
     #[dbus_proxy(property, name = "DefaultLimitCPU")]
@@ -486,7 +486,7 @@ trait Manager {
 
     /// DefaultLimitCPUSoft property
     #[dbus_proxy(property, name = "DefaultLimitCPUSoft")]
-    fn default_limit_cpusoft(&self) -> zbus::Result<u64>;
+    fn default_limit_cpu_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitDATA property
     #[dbus_proxy(property, name = "DefaultLimitDATA")]
@@ -494,7 +494,7 @@ trait Manager {
 
     /// DefaultLimitDATASoft property
     #[dbus_proxy(property, name = "DefaultLimitDATASoft")]
-    fn default_limit_datasoft(&self) -> zbus::Result<u64>;
+    fn default_limit_data_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitFSIZE property
     #[dbus_proxy(property, name = "DefaultLimitFSIZE")]
@@ -502,7 +502,7 @@ trait Manager {
 
     /// DefaultLimitFSIZESoft property
     #[dbus_proxy(property, name = "DefaultLimitFSIZESoft")]
-    fn default_limit_fsizesoft(&self) -> zbus::Result<u64>;
+    fn default_limit_fsize_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitLOCKS property
     #[dbus_proxy(property, name = "DefaultLimitLOCKS")]
@@ -510,7 +510,7 @@ trait Manager {
 
     /// DefaultLimitLOCKSSoft property
     #[dbus_proxy(property, name = "DefaultLimitLOCKSSoft")]
-    fn default_limit_lockssoft(&self) -> zbus::Result<u64>;
+    fn default_limit_locks_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitMEMLOCK property
     #[dbus_proxy(property, name = "DefaultLimitMEMLOCK")]
@@ -518,7 +518,7 @@ trait Manager {
 
     /// DefaultLimitMEMLOCKSoft property
     #[dbus_proxy(property, name = "DefaultLimitMEMLOCKSoft")]
-    fn default_limit_memlocksoft(&self) -> zbus::Result<u64>;
+    fn default_limit_memlock_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitMSGQUEUE property
     #[dbus_proxy(property, name = "DefaultLimitMSGQUEUE")]
@@ -526,7 +526,7 @@ trait Manager {
 
     /// DefaultLimitMSGQUEUESoft property
     #[dbus_proxy(property, name = "DefaultLimitMSGQUEUESoft")]
-    fn default_limit_msgqueuesoft(&self) -> zbus::Result<u64>;
+    fn default_limit_msgqueue_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitNICE property
     #[dbus_proxy(property, name = "DefaultLimitNICE")]
@@ -534,7 +534,7 @@ trait Manager {
 
     /// DefaultLimitNICESoft property
     #[dbus_proxy(property, name = "DefaultLimitNICESoft")]
-    fn default_limit_nicesoft(&self) -> zbus::Result<u64>;
+    fn default_limit_nice_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitNOFILE property
     #[dbus_proxy(property, name = "DefaultLimitNOFILE")]
@@ -542,7 +542,7 @@ trait Manager {
 
     /// DefaultLimitNOFILESoft property
     #[dbus_proxy(property, name = "DefaultLimitNOFILESoft")]
-    fn default_limit_nofilesoft(&self) -> zbus::Result<u64>;
+    fn default_limit_nofile_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitNPROC property
     #[dbus_proxy(property, name = "DefaultLimitNPROC")]
@@ -550,7 +550,7 @@ trait Manager {
 
     /// DefaultLimitNPROCSoft property
     #[dbus_proxy(property, name = "DefaultLimitNPROCSoft")]
-    fn default_limit_nprocsoft(&self) -> zbus::Result<u64>;
+    fn default_limit_nproc_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitRSS property
     #[dbus_proxy(property, name = "DefaultLimitRSS")]
@@ -558,7 +558,7 @@ trait Manager {
 
     /// DefaultLimitRSSSoft property
     #[dbus_proxy(property, name = "DefaultLimitRSSSoft")]
-    fn default_limit_rsssoft(&self) -> zbus::Result<u64>;
+    fn default_limit_rss_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitRTPRIO property
     #[dbus_proxy(property, name = "DefaultLimitRTPRIO")]
@@ -566,7 +566,7 @@ trait Manager {
 
     /// DefaultLimitRTPRIOSoft property
     #[dbus_proxy(property, name = "DefaultLimitRTPRIOSoft")]
-    fn default_limit_rtpriosoft(&self) -> zbus::Result<u64>;
+    fn default_limit_rtprio_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitRTTIME property
     #[dbus_proxy(property, name = "DefaultLimitRTTIME")]
@@ -574,7 +574,7 @@ trait Manager {
 
     /// DefaultLimitRTTIMESoft property
     #[dbus_proxy(property, name = "DefaultLimitRTTIMESoft")]
-    fn default_limit_rttimesoft(&self) -> zbus::Result<u64>;
+    fn default_limit_rttime_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitSIGPENDING property
     #[dbus_proxy(property, name = "DefaultLimitSIGPENDING")]
@@ -582,7 +582,7 @@ trait Manager {
 
     /// DefaultLimitSIGPENDINGSoft property
     #[dbus_proxy(property, name = "DefaultLimitSIGPENDINGSoft")]
-    fn default_limit_sigpendingsoft(&self) -> zbus::Result<u64>;
+    fn default_limit_sigpending_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultLimitSTACK property
     #[dbus_proxy(property, name = "DefaultLimitSTACK")]
@@ -590,7 +590,7 @@ trait Manager {
 
     /// DefaultLimitSTACKSoft property
     #[dbus_proxy(property, name = "DefaultLimitSTACKSoft")]
-    fn default_limit_stacksoft(&self) -> zbus::Result<u64>;
+    fn default_limit_stack_soft(&self) -> zbus::Result<u64>;
 
     /// DefaultMemoryAccounting property
     #[dbus_proxy(property)]
@@ -598,11 +598,11 @@ trait Manager {
 
     /// DefaultOOMPolicy property
     #[dbus_proxy(property, name = "DefaultOOMPolicy")]
-    fn default_oompolicy(&self) -> zbus::Result<String>;
+    fn default_oom_policy(&self) -> zbus::Result<String>;
 
     /// DefaultOOMScoreAdjust property
     #[dbus_proxy(property, name = "DefaultOOMScoreAdjust")]
-    fn default_oomscore_adjust(&self) -> zbus::Result<i32>;
+    fn default_oom_score_adjust(&self) -> zbus::Result<i32>;
 
     /// DefaultRestartUSec property
     #[dbus_proxy(property, name = "DefaultRestartUSec")]
@@ -694,59 +694,59 @@ trait Manager {
 
     /// InitRDGeneratorsFinishTimestamp property
     #[dbus_proxy(property, name = "InitRDGeneratorsFinishTimestamp")]
-    fn init_rdgenerators_finish_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_generators_finish_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDGeneratorsFinishTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDGeneratorsFinishTimestampMonotonic")]
-    fn init_rdgenerators_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_generators_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDGeneratorsStartTimestamp property
     #[dbus_proxy(property, name = "InitRDGeneratorsStartTimestamp")]
-    fn init_rdgenerators_start_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_generators_start_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDGeneratorsStartTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDGeneratorsStartTimestampMonotonic")]
-    fn init_rdgenerators_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_generators_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDSecurityFinishTimestamp property
     #[dbus_proxy(property, name = "InitRDSecurityFinishTimestamp")]
-    fn init_rdsecurity_finish_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_security_finish_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDSecurityFinishTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDSecurityFinishTimestampMonotonic")]
-    fn init_rdsecurity_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_security_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDSecurityStartTimestamp property
     #[dbus_proxy(property, name = "InitRDSecurityStartTimestamp")]
-    fn init_rdsecurity_start_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_security_start_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDSecurityStartTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDSecurityStartTimestampMonotonic")]
-    fn init_rdsecurity_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_security_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDTimestamp property
     #[dbus_proxy(property, name = "InitRDTimestamp")]
-    fn init_rdtimestamp(&self) -> zbus::Result<u64>;
+    fn initrd_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDTimestampMonotonic")]
-    fn init_rdtimestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDUnitsLoadFinishTimestamp property
     #[dbus_proxy(property, name = "InitRDUnitsLoadFinishTimestamp")]
-    fn init_rdunits_load_finish_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_units_load_finish_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDUnitsLoadFinishTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDUnitsLoadFinishTimestampMonotonic")]
-    fn init_rdunits_load_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_units_load_finish_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// InitRDUnitsLoadStartTimestamp property
     #[dbus_proxy(property, name = "InitRDUnitsLoadStartTimestamp")]
-    fn init_rdunits_load_start_timestamp(&self) -> zbus::Result<u64>;
+    fn initrd_units_load_start_timestamp(&self) -> zbus::Result<u64>;
 
     /// InitRDUnitsLoadStartTimestampMonotonic property
     #[dbus_proxy(property, name = "InitRDUnitsLoadStartTimestampMonotonic")]
-    fn init_rdunits_load_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
+    fn initrd_units_load_start_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
     /// KExecWatchdogUSec property
     #[dbus_proxy(property, name = "KExecWatchdogUSec")]
@@ -781,23 +781,23 @@ trait Manager {
 
     /// NFailedJobs property
     #[dbus_proxy(property, name = "NFailedJobs")]
-    fn nfailed_jobs(&self) -> zbus::Result<u32>;
+    fn n_failed_jobs(&self) -> zbus::Result<u32>;
 
     /// NFailedUnits property
     #[dbus_proxy(property, name = "NFailedUnits")]
-    fn nfailed_units(&self) -> zbus::Result<u32>;
+    fn n_failed_units(&self) -> zbus::Result<u32>;
 
     /// NInstalledJobs property
     #[dbus_proxy(property, name = "NInstalledJobs")]
-    fn ninstalled_jobs(&self) -> zbus::Result<u32>;
+    fn n_installed_jobs(&self) -> zbus::Result<u32>;
 
     /// NJobs property
     #[dbus_proxy(property, name = "NJobs")]
-    fn njobs(&self) -> zbus::Result<u32>;
+    fn n_jobs(&self) -> zbus::Result<u32>;
 
     /// NNames property
     #[dbus_proxy(property, name = "NNames")]
-    fn nnames(&self) -> zbus::Result<u32>;
+    fn n_names(&self) -> zbus::Result<u32>;
 
     /// Progress property
     #[dbus_proxy(property)]
