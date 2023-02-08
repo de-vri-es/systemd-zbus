@@ -28,5 +28,5 @@ use zbus::dbus_proxy;
 trait Device {
     /// SysFSPath property
     #[dbus_proxy(property, name = "SysFSPath")]
-    fn sys_fspath(&self) -> zbus::Result<String>;
+    fn sysfs_path(&self) -> zbus::Result<String>;
 }
