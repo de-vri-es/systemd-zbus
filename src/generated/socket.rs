@@ -54,7 +54,7 @@ trait Socket {
 
     /// BPFProgram property
     #[dbus_proxy(property, name = "BPFProgram")]
-    fn bpfprogram(&self) -> zbus::Result<Vec<(String, String)>>;
+    fn bpf_program(&self) -> zbus::Result<Vec<(String, String)>>;
 
     /// Backlog property
     #[dbus_proxy(property)]
@@ -78,23 +78,23 @@ trait Socket {
 
     /// BlockIOAccounting property
     #[dbus_proxy(property, name = "BlockIOAccounting")]
-    fn block_ioaccounting(&self) -> zbus::Result<bool>;
+    fn block_io_accounting(&self) -> zbus::Result<bool>;
 
     /// BlockIODeviceWeight property
     #[dbus_proxy(property, name = "BlockIODeviceWeight")]
-    fn block_iodevice_weight(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn block_io_device_weight(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// BlockIOReadBandwidth property
     #[dbus_proxy(property, name = "BlockIOReadBandwidth")]
-    fn block_ioread_bandwidth(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn block_io_read_bandwidth(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// BlockIOWeight property
     #[dbus_proxy(property, name = "BlockIOWeight")]
-    fn block_ioweight(&self) -> zbus::Result<u64>;
+    fn block_io_weight(&self) -> zbus::Result<u64>;
 
     /// BlockIOWriteBandwidth property
     #[dbus_proxy(property, name = "BlockIOWriteBandwidth")]
-    fn block_iowrite_bandwidth(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn block_io_write_bandwidth(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// Broadcast property
     #[dbus_proxy(property)]
@@ -102,47 +102,47 @@ trait Socket {
 
     /// CPUAccounting property
     #[dbus_proxy(property, name = "CPUAccounting")]
-    fn cpuaccounting(&self) -> zbus::Result<bool>;
+    fn cpu_accounting(&self) -> zbus::Result<bool>;
 
     /// CPUAffinity property
     #[dbus_proxy(property, name = "CPUAffinity")]
-    fn cpuaffinity(&self) -> zbus::Result<Vec<u8>>;
+    fn cpu_affinity(&self) -> zbus::Result<Vec<u8>>;
 
     /// CPUAffinityFromNUMA property
     #[dbus_proxy(property, name = "CPUAffinityFromNUMA")]
-    fn cpuaffinity_from_numa(&self) -> zbus::Result<bool>;
+    fn cpu_affinity_from_numa(&self) -> zbus::Result<bool>;
 
     /// CPUQuotaPerSecUSec property
     #[dbus_proxy(property, name = "CPUQuotaPerSecUSec")]
-    fn cpuquota_per_sec_usec(&self) -> zbus::Result<u64>;
+    fn cpu_quota_per_sec_usec(&self) -> zbus::Result<u64>;
 
     /// CPUQuotaPeriodUSec property
     #[dbus_proxy(property, name = "CPUQuotaPeriodUSec")]
-    fn cpuquota_period_usec(&self) -> zbus::Result<u64>;
+    fn cpu_quota_period_usec(&self) -> zbus::Result<u64>;
 
     /// CPUSchedulingPolicy property
     #[dbus_proxy(property, name = "CPUSchedulingPolicy")]
-    fn cpuscheduling_policy(&self) -> zbus::Result<i32>;
+    fn cpu_scheduling_policy(&self) -> zbus::Result<i32>;
 
     /// CPUSchedulingPriority property
     #[dbus_proxy(property, name = "CPUSchedulingPriority")]
-    fn cpuscheduling_priority(&self) -> zbus::Result<i32>;
+    fn cpu_scheduling_priority(&self) -> zbus::Result<i32>;
 
     /// CPUSchedulingResetOnFork property
     #[dbus_proxy(property, name = "CPUSchedulingResetOnFork")]
-    fn cpuscheduling_reset_on_fork(&self) -> zbus::Result<bool>;
+    fn cpu_scheduling_reset_on_fork(&self) -> zbus::Result<bool>;
 
     /// CPUShares property
     #[dbus_proxy(property, name = "CPUShares")]
-    fn cpushares(&self) -> zbus::Result<u64>;
+    fn cpu_shares(&self) -> zbus::Result<u64>;
 
     /// CPUUsageNSec property
     #[dbus_proxy(property, name = "CPUUsageNSec")]
-    fn cpuusage_nsec(&self) -> zbus::Result<u64>;
+    fn cpu_usage_nsec(&self) -> zbus::Result<u64>;
 
     /// CPUWeight property
     #[dbus_proxy(property, name = "CPUWeight")]
-    fn cpuweight(&self) -> zbus::Result<u64>;
+    fn cpu_weight(&self) -> zbus::Result<u64>;
 
     /// CacheDirectory property
     #[dbus_proxy(property)]
@@ -306,107 +306,107 @@ trait Socket {
 
     /// IOAccounting property
     #[dbus_proxy(property, name = "IOAccounting")]
-    fn ioaccounting(&self) -> zbus::Result<bool>;
+    fn io_accounting(&self) -> zbus::Result<bool>;
 
     /// IODeviceLatencyTargetUSec property
     #[dbus_proxy(property, name = "IODeviceLatencyTargetUSec")]
-    fn iodevice_latency_target_usec(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn io_device_latency_target_usec(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IODeviceWeight property
     #[dbus_proxy(property, name = "IODeviceWeight")]
-    fn iodevice_weight(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn io_device_weight(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IOReadBandwidthMax property
     #[dbus_proxy(property, name = "IOReadBandwidthMax")]
-    fn ioread_bandwidth_max(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn io_read_bandwidth_max(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IOReadBytes property
     #[dbus_proxy(property, name = "IOReadBytes")]
-    fn ioread_bytes(&self) -> zbus::Result<u64>;
+    fn io_read_bytes(&self) -> zbus::Result<u64>;
 
     /// IOReadIOPSMax property
     #[dbus_proxy(property, name = "IOReadIOPSMax")]
-    fn ioread_iopsmax(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn io_read_iops_max(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IOReadOperations property
     #[dbus_proxy(property, name = "IOReadOperations")]
-    fn ioread_operations(&self) -> zbus::Result<u64>;
+    fn io_read_operations(&self) -> zbus::Result<u64>;
 
     /// IOSchedulingClass property
     #[dbus_proxy(property, name = "IOSchedulingClass")]
-    fn ioscheduling_class(&self) -> zbus::Result<i32>;
+    fn io_scheduling_class(&self) -> zbus::Result<i32>;
 
     /// IOSchedulingPriority property
     #[dbus_proxy(property, name = "IOSchedulingPriority")]
-    fn ioscheduling_priority(&self) -> zbus::Result<i32>;
+    fn io_scheduling_priority(&self) -> zbus::Result<i32>;
 
     /// IOWeight property
     #[dbus_proxy(property, name = "IOWeight")]
-    fn ioweight(&self) -> zbus::Result<u64>;
+    fn io_weight(&self) -> zbus::Result<u64>;
 
     /// IOWriteBandwidthMax property
     #[dbus_proxy(property, name = "IOWriteBandwidthMax")]
-    fn iowrite_bandwidth_max(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn io_write_bandwidth_max(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IOWriteBytes property
     #[dbus_proxy(property, name = "IOWriteBytes")]
-    fn iowrite_bytes(&self) -> zbus::Result<u64>;
+    fn io_write_bytes(&self) -> zbus::Result<u64>;
 
     /// IOWriteIOPSMax property
     #[dbus_proxy(property, name = "IOWriteIOPSMax")]
-    fn iowrite_iopsmax(&self) -> zbus::Result<Vec<(String, u64)>>;
+    fn iowrite_iops_max(&self) -> zbus::Result<Vec<(String, u64)>>;
 
     /// IOWriteOperations property
     #[dbus_proxy(property, name = "IOWriteOperations")]
-    fn iowrite_operations(&self) -> zbus::Result<u64>;
+    fn io_write_operations(&self) -> zbus::Result<u64>;
 
     /// IPAccounting property
     #[dbus_proxy(property, name = "IPAccounting")]
-    fn ipaccounting(&self) -> zbus::Result<bool>;
+    fn ip_accounting(&self) -> zbus::Result<bool>;
 
     /// IPAddressAllow property
     #[dbus_proxy(property, name = "IPAddressAllow")]
-    fn ipaddress_allow(&self) -> zbus::Result<Vec<(i32, Vec<u8>, u32)>>;
+    fn ip_address_allow(&self) -> zbus::Result<Vec<(i32, Vec<u8>, u32)>>;
 
     /// IPAddressDeny property
     #[dbus_proxy(property, name = "IPAddressDeny")]
-    fn ipaddress_deny(&self) -> zbus::Result<Vec<(i32, Vec<u8>, u32)>>;
+    fn ip_address_deny(&self) -> zbus::Result<Vec<(i32, Vec<u8>, u32)>>;
 
     /// IPCNamespacePath property
     #[dbus_proxy(property, name = "IPCNamespacePath")]
-    fn ipcnamespace_path(&self) -> zbus::Result<String>;
+    fn ipc_namespace_path(&self) -> zbus::Result<String>;
 
     /// IPEgressBytes property
     #[dbus_proxy(property, name = "IPEgressBytes")]
-    fn ipegress_bytes(&self) -> zbus::Result<u64>;
+    fn ip_egress_bytes(&self) -> zbus::Result<u64>;
 
     /// IPEgressFilterPath property
     #[dbus_proxy(property, name = "IPEgressFilterPath")]
-    fn ipegress_filter_path(&self) -> zbus::Result<Vec<String>>;
+    fn ip_egress_filter_path(&self) -> zbus::Result<Vec<String>>;
 
     /// IPEgressPackets property
     #[dbus_proxy(property, name = "IPEgressPackets")]
-    fn ipegress_packets(&self) -> zbus::Result<u64>;
+    fn ip_egress_packets(&self) -> zbus::Result<u64>;
 
     /// IPIngressBytes property
     #[dbus_proxy(property, name = "IPIngressBytes")]
-    fn ipingress_bytes(&self) -> zbus::Result<u64>;
+    fn ip_ingress_bytes(&self) -> zbus::Result<u64>;
 
     /// IPIngressFilterPath property
     #[dbus_proxy(property, name = "IPIngressFilterPath")]
-    fn ipingress_filter_path(&self) -> zbus::Result<Vec<String>>;
+    fn ip_ingress_filter_path(&self) -> zbus::Result<Vec<String>>;
 
     /// IPIngressPackets property
     #[dbus_proxy(property, name = "IPIngressPackets")]
-    fn ipingress_packets(&self) -> zbus::Result<u64>;
+    fn ip_ingress_packets(&self) -> zbus::Result<u64>;
 
     /// IPTOS property
     #[dbus_proxy(property, name = "IPTOS")]
-    fn iptos(&self) -> zbus::Result<i32>;
+    fn ip_tos(&self) -> zbus::Result<i32>;
 
     /// IPTTL property
     #[dbus_proxy(property, name = "IPTTL")]
-    fn ipttl(&self) -> zbus::Result<i32>;
+    fn ip_ttl(&self) -> zbus::Result<i32>;
 
     /// IgnoreSIGPIPE property
     #[dbus_proxy(property, name = "IgnoreSIGPIPE")]
@@ -450,7 +450,7 @@ trait Socket {
 
     /// LimitASSoft property
     #[dbus_proxy(property, name = "LimitASSoft")]
-    fn limit_assoft(&self) -> zbus::Result<u64>;
+    fn limit_as_soft(&self) -> zbus::Result<u64>;
 
     /// LimitCORE property
     #[dbus_proxy(property, name = "LimitCORE")]
@@ -458,7 +458,7 @@ trait Socket {
 
     /// LimitCORESoft property
     #[dbus_proxy(property, name = "LimitCORESoft")]
-    fn limit_coresoft(&self) -> zbus::Result<u64>;
+    fn limit_core_soft(&self) -> zbus::Result<u64>;
 
     /// LimitCPU property
     #[dbus_proxy(property, name = "LimitCPU")]
@@ -466,7 +466,7 @@ trait Socket {
 
     /// LimitCPUSoft property
     #[dbus_proxy(property, name = "LimitCPUSoft")]
-    fn limit_cpusoft(&self) -> zbus::Result<u64>;
+    fn limit_cpu_soft(&self) -> zbus::Result<u64>;
 
     /// LimitDATA property
     #[dbus_proxy(property, name = "LimitDATA")]
@@ -474,7 +474,7 @@ trait Socket {
 
     /// LimitDATASoft property
     #[dbus_proxy(property, name = "LimitDATASoft")]
-    fn limit_datasoft(&self) -> zbus::Result<u64>;
+    fn limit_data_soft(&self) -> zbus::Result<u64>;
 
     /// LimitFSIZE property
     #[dbus_proxy(property, name = "LimitFSIZE")]
@@ -482,7 +482,7 @@ trait Socket {
 
     /// LimitFSIZESoft property
     #[dbus_proxy(property, name = "LimitFSIZESoft")]
-    fn limit_fsizesoft(&self) -> zbus::Result<u64>;
+    fn limit_fsize_soft(&self) -> zbus::Result<u64>;
 
     /// LimitLOCKS property
     #[dbus_proxy(property, name = "LimitLOCKS")]
@@ -490,7 +490,7 @@ trait Socket {
 
     /// LimitLOCKSSoft property
     #[dbus_proxy(property, name = "LimitLOCKSSoft")]
-    fn limit_lockssoft(&self) -> zbus::Result<u64>;
+    fn limit_locks_soft(&self) -> zbus::Result<u64>;
 
     /// LimitMEMLOCK property
     #[dbus_proxy(property, name = "LimitMEMLOCK")]
@@ -498,7 +498,7 @@ trait Socket {
 
     /// LimitMEMLOCKSoft property
     #[dbus_proxy(property, name = "LimitMEMLOCKSoft")]
-    fn limit_memlocksoft(&self) -> zbus::Result<u64>;
+    fn limit_memlock_soft(&self) -> zbus::Result<u64>;
 
     /// LimitMSGQUEUE property
     #[dbus_proxy(property, name = "LimitMSGQUEUE")]
@@ -506,7 +506,7 @@ trait Socket {
 
     /// LimitMSGQUEUESoft property
     #[dbus_proxy(property, name = "LimitMSGQUEUESoft")]
-    fn limit_msgqueuesoft(&self) -> zbus::Result<u64>;
+    fn limit_msgqueue_soft(&self) -> zbus::Result<u64>;
 
     /// LimitNICE property
     #[dbus_proxy(property, name = "LimitNICE")]
@@ -514,7 +514,7 @@ trait Socket {
 
     /// LimitNICESoft property
     #[dbus_proxy(property, name = "LimitNICESoft")]
-    fn limit_nicesoft(&self) -> zbus::Result<u64>;
+    fn limit_nice_soft(&self) -> zbus::Result<u64>;
 
     /// LimitNOFILE property
     #[dbus_proxy(property, name = "LimitNOFILE")]
@@ -522,7 +522,7 @@ trait Socket {
 
     /// LimitNOFILESoft property
     #[dbus_proxy(property, name = "LimitNOFILESoft")]
-    fn limit_nofilesoft(&self) -> zbus::Result<u64>;
+    fn limit_nofile_soft(&self) -> zbus::Result<u64>;
 
     /// LimitNPROC property
     #[dbus_proxy(property, name = "LimitNPROC")]
@@ -530,7 +530,7 @@ trait Socket {
 
     /// LimitNPROCSoft property
     #[dbus_proxy(property, name = "LimitNPROCSoft")]
-    fn limit_nprocsoft(&self) -> zbus::Result<u64>;
+    fn limit_nproc_soft(&self) -> zbus::Result<u64>;
 
     /// LimitRSS property
     #[dbus_proxy(property, name = "LimitRSS")]
@@ -538,7 +538,7 @@ trait Socket {
 
     /// LimitRSSSoft property
     #[dbus_proxy(property, name = "LimitRSSSoft")]
-    fn limit_rsssoft(&self) -> zbus::Result<u64>;
+    fn limit_rss_soft(&self) -> zbus::Result<u64>;
 
     /// LimitRTPRIO property
     #[dbus_proxy(property, name = "LimitRTPRIO")]
@@ -546,7 +546,7 @@ trait Socket {
 
     /// LimitRTPRIOSoft property
     #[dbus_proxy(property, name = "LimitRTPRIOSoft")]
-    fn limit_rtpriosoft(&self) -> zbus::Result<u64>;
+    fn limit_rtprio_soft(&self) -> zbus::Result<u64>;
 
     /// LimitRTTIME property
     #[dbus_proxy(property, name = "LimitRTTIME")]
@@ -554,7 +554,7 @@ trait Socket {
 
     /// LimitRTTIMESoft property
     #[dbus_proxy(property, name = "LimitRTTIMESoft")]
-    fn limit_rttimesoft(&self) -> zbus::Result<u64>;
+    fn limit_rttime_soft(&self) -> zbus::Result<u64>;
 
     /// LimitSIGPENDING property
     #[dbus_proxy(property, name = "LimitSIGPENDING")]
@@ -562,7 +562,7 @@ trait Socket {
 
     /// LimitSIGPENDINGSoft property
     #[dbus_proxy(property, name = "LimitSIGPENDINGSoft")]
-    fn limit_sigpendingsoft(&self) -> zbus::Result<u64>;
+    fn limit_sigpending_soft(&self) -> zbus::Result<u64>;
 
     /// LimitSTACK property
     #[dbus_proxy(property, name = "LimitSTACK")]
@@ -570,7 +570,7 @@ trait Socket {
 
     /// LimitSTACKSoft property
     #[dbus_proxy(property, name = "LimitSTACKSoft")]
-    fn limit_stacksoft(&self) -> zbus::Result<u64>;
+    fn limit_stack_soft(&self) -> zbus::Result<u64>;
 
     /// Listen property
     #[dbus_proxy(property)]
@@ -622,19 +622,19 @@ trait Socket {
 
     /// ManagedOOMMemoryPressure property
     #[dbus_proxy(property, name = "ManagedOOMMemoryPressure")]
-    fn managed_oommemory_pressure(&self) -> zbus::Result<String>;
+    fn managed_oom_memory_pressure(&self) -> zbus::Result<String>;
 
     /// ManagedOOMMemoryPressureLimit property
     #[dbus_proxy(property, name = "ManagedOOMMemoryPressureLimit")]
-    fn managed_oommemory_pressure_limit(&self) -> zbus::Result<u32>;
+    fn managed_oom_memory_pressure_limit(&self) -> zbus::Result<u32>;
 
     /// ManagedOOMPreference property
     #[dbus_proxy(property, name = "ManagedOOMPreference")]
-    fn managed_oompreference(&self) -> zbus::Result<String>;
+    fn managed_oom_preference(&self) -> zbus::Result<String>;
 
     /// ManagedOOMSwap property
     #[dbus_proxy(property, name = "ManagedOOMSwap")]
-    fn managed_oomswap(&self) -> zbus::Result<String>;
+    fn managed_oom_swap(&self) -> zbus::Result<String>;
 
     /// Mark property
     #[dbus_proxy(property)]
@@ -710,23 +710,23 @@ trait Socket {
 
     /// NAccepted property
     #[dbus_proxy(property, name = "NAccepted")]
-    fn naccepted(&self) -> zbus::Result<u32>;
+    fn n_accepted(&self) -> zbus::Result<u32>;
 
     /// NConnections property
     #[dbus_proxy(property, name = "NConnections")]
-    fn nconnections(&self) -> zbus::Result<u32>;
+    fn n_connections(&self) -> zbus::Result<u32>;
 
     /// NRefused property
     #[dbus_proxy(property, name = "NRefused")]
-    fn nrefused(&self) -> zbus::Result<u32>;
+    fn n_refused(&self) -> zbus::Result<u32>;
 
     /// NUMAMask property
     #[dbus_proxy(property, name = "NUMAMask")]
-    fn numamask(&self) -> zbus::Result<Vec<u8>>;
+    fn numa_mask(&self) -> zbus::Result<Vec<u8>>;
 
     /// NUMAPolicy property
     #[dbus_proxy(property, name = "NUMAPolicy")]
-    fn numapolicy(&self) -> zbus::Result<i32>;
+    fn numa_policy(&self) -> zbus::Result<i32>;
 
     /// NetworkNamespacePath property
     #[dbus_proxy(property)]
@@ -754,11 +754,11 @@ trait Socket {
 
     /// OOMScoreAdjust property
     #[dbus_proxy(property, name = "OOMScoreAdjust")]
-    fn oomscore_adjust(&self) -> zbus::Result<i32>;
+    fn oom_score_adjust(&self) -> zbus::Result<i32>;
 
     /// PAMName property
     #[dbus_proxy(property, name = "PAMName")]
-    fn pamname(&self) -> zbus::Result<String>;
+    fn pam_name(&self) -> zbus::Result<String>;
 
     /// PassCredentials property
     #[dbus_proxy(property)]
@@ -998,11 +998,11 @@ trait Socket {
 
     /// SmackLabelIPIn property
     #[dbus_proxy(property, name = "SmackLabelIPIn")]
-    fn smack_label_ipin(&self) -> zbus::Result<String>;
+    fn smack_label_ip_in(&self) -> zbus::Result<String>;
 
     /// SmackLabelIPOut property
     #[dbus_proxy(property, name = "SmackLabelIPOut")]
-    fn smack_label_ipout(&self) -> zbus::Result<String>;
+    fn smack_label_ip_out(&self) -> zbus::Result<String>;
 
     /// SmackProcessLabel property
     #[dbus_proxy(property)]
@@ -1070,19 +1070,19 @@ trait Socket {
 
     /// StartupBlockIOWeight property
     #[dbus_proxy(property, name = "StartupBlockIOWeight")]
-    fn startup_block_ioweight(&self) -> zbus::Result<u64>;
+    fn startup_block_io_weight(&self) -> zbus::Result<u64>;
 
     /// StartupCPUShares property
     #[dbus_proxy(property, name = "StartupCPUShares")]
-    fn startup_cpushares(&self) -> zbus::Result<u64>;
+    fn startup_cpu_shares(&self) -> zbus::Result<u64>;
 
     /// StartupCPUWeight property
     #[dbus_proxy(property, name = "StartupCPUWeight")]
-    fn startup_cpuweight(&self) -> zbus::Result<u64>;
+    fn startup_cpu_weight(&self) -> zbus::Result<u64>;
 
     /// StartupIOWeight property
     #[dbus_proxy(property, name = "StartupIOWeight")]
-    fn startup_ioweight(&self) -> zbus::Result<u64>;
+    fn startup_io_weight(&self) -> zbus::Result<u64>;
 
     /// StateDirectory property
     #[dbus_proxy(property)]
@@ -1142,31 +1142,31 @@ trait Socket {
 
     /// TCPCongestion property
     #[dbus_proxy(property, name = "TCPCongestion")]
-    fn tcpcongestion(&self) -> zbus::Result<String>;
+    fn tcp_congestion(&self) -> zbus::Result<String>;
 
     /// TTYColumns property
     #[dbus_proxy(property, name = "TTYColumns")]
-    fn ttycolumns(&self) -> zbus::Result<u16>;
+    fn tty_columns(&self) -> zbus::Result<u16>;
 
     /// TTYPath property
     #[dbus_proxy(property, name = "TTYPath")]
-    fn ttypath(&self) -> zbus::Result<String>;
+    fn tty_path(&self) -> zbus::Result<String>;
 
     /// TTYReset property
     #[dbus_proxy(property, name = "TTYReset")]
-    fn ttyreset(&self) -> zbus::Result<bool>;
+    fn tty_reset(&self) -> zbus::Result<bool>;
 
     /// TTYRows property
     #[dbus_proxy(property, name = "TTYRows")]
-    fn ttyrows(&self) -> zbus::Result<u16>;
+    fn tty_rows(&self) -> zbus::Result<u16>;
 
     /// TTYVHangup property
     #[dbus_proxy(property, name = "TTYVHangup")]
-    fn ttyvhangup(&self) -> zbus::Result<bool>;
+    fn tty_vhangup(&self) -> zbus::Result<bool>;
 
     /// TTYVTDisallocate property
     #[dbus_proxy(property, name = "TTYVTDisallocate")]
-    fn ttyvtdisallocate(&self) -> zbus::Result<bool>;
+    fn tty_vtd_isallocate(&self) -> zbus::Result<bool>;
 
     /// TasksAccounting property
     #[dbus_proxy(property)]

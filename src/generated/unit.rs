@@ -49,14 +49,8 @@ trait Unit {
         )>,
     )>;
 
-    /// Freeze method
-    fn freeze(&self) -> zbus::Result<()>;
-
     /// Kill method
     fn kill(&self, whom: &str, signal: i32) -> zbus::Result<()>;
-
-    /// Ref method
-    fn ref_(&self) -> zbus::Result<()>;
 
     /// Reload method
     fn reload(&self, mode: &str) -> zbus::Result<zbus::zvariant::OwnedObjectPath>;
@@ -86,14 +80,8 @@ trait Unit {
     /// Stop method
     fn stop(&self, mode: &str) -> zbus::Result<zbus::zvariant::OwnedObjectPath>;
 
-    /// Thaw method
-    fn thaw(&self) -> zbus::Result<()>;
-
     /// TryRestart method
     fn try_restart(&self, mode: &str) -> zbus::Result<zbus::zvariant::OwnedObjectPath>;
-
-    /// Unref method
-    fn unref(&self) -> zbus::Result<()>;
 
     /// AccessSELinuxContext property
     #[dbus_proxy(property, name = "AccessSELinuxContext")]

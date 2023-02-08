@@ -44,5 +44,5 @@ trait Automount {
 
     /// Where property
     #[dbus_proxy(property)]
-    fn where_(&self) -> zbus::Result<String>;
+    fn where_path(&self) -> zbus::Result<String>;
 }
