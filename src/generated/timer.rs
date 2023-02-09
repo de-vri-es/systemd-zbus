@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::{TimerCalendar, TimerMonotonic};
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Timer",
     default_service = "org.freedesktop.systemd1"
@@ -76,11 +78,11 @@ trait Timer {
 
     /// TimersCalendar property
     #[dbus_proxy(property)]
-    fn timers_calendar(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn timers_calendar(&self) -> zbus::Result<Vec<TimerCalendar>>;
 
     /// TimersMonotonic property
     #[dbus_proxy(property)]
-    fn timers_monotonic(&self) -> zbus::Result<Vec<(String, u64, u64)>>;
+    fn timers_monotonic(&self) -> zbus::Result<Vec<TimerMonotonic>>;
 
     /// Unit property
     #[dbus_proxy(property)]
