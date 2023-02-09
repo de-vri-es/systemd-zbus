@@ -469,3 +469,49 @@ enum_impl_str_conv!(TimerMonotonicBase, {
 });
 enum_impl_serde_str!(TimerMonotonicBase);
 impl_value_conversions_as_str!(TimerMonotonicBase);
+
+/// The bind mount is recursive.
+pub const BIND_MOUNT_RECURSIVE: u64 = 0x4000;
+
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct BindMount {
+    /// The source folder of the bind mount.
+    pub source: String,
+
+    /// The destination folder of the bind mount.
+    pub destination: String,
+
+    /// Ignore the bind mount if the source folder does not exist.
+    pub ignore_non_existing: bool,
+
+    /// Additional options for the bind mount as bitmask.
+    ///
+    /// Currently only the [`BIND_MOUNT_RECURSIVE`] option exists.
+    pub options: u64,
+}
+
+/// A process spawned by systemd for a unit.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct Process {
+    /// The cgroup controller of the process.
+    pub cgroup_controller: String,
+
+    /// The PID of the process.
+    pub pid: u32,
+
+    /// The command line of the process.
+    pub command_line: String,
+}
+
+/// A symbolic link created for a runtime,state, cache or log directort directory.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct DirectorySymlink {
+    /// The path of the symbolic link target.
+    pub target_path: String,
+
+    /// The path of the symbolic link.
+    pub symlink_path: String,
+
+    /// Flags, currently unused.
+    pub flags: u64,
+}

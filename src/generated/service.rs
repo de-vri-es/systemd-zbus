@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::Exec;
+use crate::{BindMount, DirectorySymlink, Exec, Process};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Service",
@@ -41,7 +41,7 @@ trait Service {
     ) -> zbus::Result<()>;
 
     /// GetProcesses method
-    fn get_processes(&self) -> zbus::Result<Vec<(String, u32, String)>>;
+    fn get_processes(&self) -> zbus::Result<Vec<Process>>;
 
     /// MountImage method
     fn mount_image(
@@ -75,11 +75,11 @@ trait Service {
 
     /// BindPaths property
     #[dbus_proxy(property)]
-    fn bind_paths(&self) -> zbus::Result<Vec<(String, String, bool, u64)>>;
+    fn bind_paths(&self) -> zbus::Result<Vec<BindMount>>;
 
     /// BindReadOnlyPaths property
     #[dbus_proxy(property)]
-    fn bind_read_only_paths(&self) -> zbus::Result<Vec<(String, String, bool, u64)>>;
+    fn bind_read_only_paths(&self) -> zbus::Result<Vec<BindMount>>;
 
     /// BlockIOAccounting property
     #[dbus_proxy(property, name = "BlockIOAccounting")]
@@ -159,7 +159,7 @@ trait Service {
 
     /// CacheDirectorySymlink property
     #[dbus_proxy(property)]
-    fn cache_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn cache_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// CapabilityBoundingSet property
     #[dbus_proxy(property)]
@@ -756,7 +756,7 @@ trait Service {
 
     /// LogsDirectorySymlink property
     #[dbus_proxy(property)]
-    fn logs_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn logs_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// MainPID property
     #[dbus_proxy(property, name = "MainPID")]
@@ -1076,7 +1076,7 @@ trait Service {
 
     /// RuntimeDirectorySymlink property
     #[dbus_proxy(property)]
-    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// RuntimeMaxUSec property
     #[dbus_proxy(property, name = "RuntimeMaxUSec")]
@@ -1192,7 +1192,7 @@ trait Service {
 
     /// StateDirectorySymlink property
     #[dbus_proxy(property)]
-    fn state_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn state_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// StatusErrno property
     #[dbus_proxy(property)]

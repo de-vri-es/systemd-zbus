@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::Exec;
+use crate::{DirectorySymlink, Exec, Process};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Socket",
@@ -32,7 +32,7 @@ trait Socket {
     fn attach_processes(&self, subcgroup: &str, pids: &[u32]) -> zbus::Result<()>;
 
     /// GetProcesses method
-    fn get_processes(&self) -> zbus::Result<Vec<(String, u32, String)>>;
+    fn get_processes(&self) -> zbus::Result<Vec<Process>>;
 
     /// Accept property
     #[dbus_proxy(property)]
@@ -156,7 +156,7 @@ trait Socket {
 
     /// CacheDirectorySymlink property
     #[dbus_proxy(property)]
-    fn cache_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn cache_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// CapabilityBoundingSet property
     #[dbus_proxy(property)]
@@ -612,7 +612,7 @@ trait Socket {
 
     /// LogsDirectorySymlink property
     #[dbus_proxy(property)]
-    fn logs_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn logs_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// ManagedOOMMemoryPressure property
     #[dbus_proxy(property, name = "ManagedOOMMemoryPressure")]
@@ -948,7 +948,7 @@ trait Socket {
 
     /// RuntimeDirectorySymlink property
     #[dbus_proxy(property)]
-    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// SELinuxContext property
     #[dbus_proxy(property, name = "SELinuxContext")]
@@ -1088,7 +1088,7 @@ trait Socket {
 
     /// StateDirectorySymlink property
     #[dbus_proxy(property)]
-    fn state_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn state_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// SupplementaryGroups property
     #[dbus_proxy(property)]
