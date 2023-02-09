@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use zbus::zvariant::{OwnedObjectPath, Type};
+use zbus::zvariant::{OwnedObjectPath, OwnedValue, Type, Value};
 
 use crate::{enum_impl_serde_str, enum_impl_str_conv, impl_try_from_owned_as_str};
 
@@ -308,6 +308,19 @@ pub struct EnquedJob {
 pub struct EnqueJob {
     pub job: EnquedJob,
     pub affected_jobs: Vec<EnquedJob>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct KeyValue<K, V>
+where
+    K: Type,
+    V: Type,
+{
+    /// The key.
+    pub key: K,
+
+    /// The value.
+    pub value: V,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]

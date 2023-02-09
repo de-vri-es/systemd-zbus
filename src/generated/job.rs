@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::{Job, KeyValue};
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Job",
     default_service = "org.freedesktop.systemd1"
@@ -30,36 +32,14 @@ trait Job {
     fn cancel(&self) -> zbus::Result<()>;
 
     /// GetAfter method
-    fn get_after(
-        &self,
-    ) -> zbus::Result<
-        Vec<(
-            u32,
-            String,
-            String,
-            String,
-            zbus::zvariant::OwnedObjectPath,
-            zbus::zvariant::OwnedObjectPath,
-        )>,
-    >;
+    fn get_after(&self) -> zbus::Result<Vec<Job>>;
 
     /// GetBefore method
-    fn get_before(
-        &self,
-    ) -> zbus::Result<
-        Vec<(
-            u32,
-            String,
-            String,
-            String,
-            zbus::zvariant::OwnedObjectPath,
-            zbus::zvariant::OwnedObjectPath,
-        )>,
-    >;
+    fn get_before(&self) -> zbus::Result<Vec<Job>>;
 
     /// ActivationDetails property
     #[dbus_proxy(property)]
-    fn activation_details(&self) -> zbus::Result<Vec<(String, String)>>;
+    fn activation_details(&self) -> zbus::Result<Vec<KeyValue<String, String>>>;
 
     /// Id property
     #[dbus_proxy(property)]
