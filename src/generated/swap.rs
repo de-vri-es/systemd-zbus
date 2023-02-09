@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::{BindMount, DirectorySymlink, Exec, Process};
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Swap",
     default_service = "org.freedesktop.systemd1"
@@ -30,7 +32,7 @@ trait Swap {
     fn attach_processes(&self, subcgroup: &str, pids: &[u32]) -> zbus::Result<()>;
 
     /// GetProcesses method
-    fn get_processes(&self) -> zbus::Result<Vec<(String, u32, String)>>;
+    fn get_processes(&self) -> zbus::Result<Vec<Process>>;
 
     /// AllowedCPUs property
     #[dbus_proxy(property, name = "AllowedCPUs")]
@@ -54,11 +56,11 @@ trait Swap {
 
     /// BindPaths property
     #[dbus_proxy(property)]
-    fn bind_paths(&self) -> zbus::Result<Vec<(String, String, bool, u64)>>;
+    fn bind_paths(&self) -> zbus::Result<Vec<BindMount>>;
 
     /// BindReadOnlyPaths property
     #[dbus_proxy(property)]
-    fn bind_read_only_paths(&self) -> zbus::Result<Vec<(String, String, bool, u64)>>;
+    fn bind_read_only_paths(&self) -> zbus::Result<Vec<BindMount>>;
 
     /// BlockIOAccounting property
     #[dbus_proxy(property, name = "BlockIOAccounting")]
@@ -134,7 +136,7 @@ trait Swap {
 
     /// CacheDirectorySymlink property
     #[dbus_proxy(property)]
-    fn cache_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn cache_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// CapabilityBoundingSet property
     #[dbus_proxy(property)]
@@ -534,7 +536,7 @@ trait Swap {
 
     /// LogsDirectorySymlink property
     #[dbus_proxy(property)]
-    fn logs_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn logs_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// ManagedOOMMemoryPressure property
     #[dbus_proxy(property, name = "ManagedOOMMemoryPressure")]
@@ -810,7 +812,7 @@ trait Swap {
 
     /// RuntimeDirectorySymlink property
     #[dbus_proxy(property)]
-    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn runtime_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// SELinuxContext property
     #[dbus_proxy(property, name = "SELinuxContext")]
@@ -918,7 +920,7 @@ trait Swap {
 
     /// StateDirectorySymlink property
     #[dbus_proxy(property)]
-    fn state_directory_symlink(&self) -> zbus::Result<Vec<(String, String, u64)>>;
+    fn state_directory_symlink(&self) -> zbus::Result<Vec<DirectorySymlink>>;
 
     /// SupplementaryGroups property
     #[dbus_proxy(property)]

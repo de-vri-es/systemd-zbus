@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::Process;
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Slice",
     default_service = "org.freedesktop.systemd1"
@@ -30,7 +32,7 @@ trait Slice {
     fn attach_processes(&self, subcgroup: &str, pids: &[u32]) -> zbus::Result<()>;
 
     /// GetProcesses method
-    fn get_processes(&self) -> zbus::Result<Vec<(String, u32, String)>>;
+    fn get_processes(&self) -> zbus::Result<Vec<Process>>;
 
     /// AllowedCPUs property
     #[dbus_proxy(property, name = "AllowedCPUs")]
