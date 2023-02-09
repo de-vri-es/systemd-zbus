@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::{ActiveState, Job, KeyValue};
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Unit",
     default_service = "org.freedesktop.systemd1"
@@ -30,24 +32,7 @@ trait Unit {
     fn clean(&self, mask: &[&str]) -> zbus::Result<()>;
 
     /// EnqueueJob method
-    fn enqueue_job(
-        &self,
-        job_type: &str,
-        job_mode: &str,
-    ) -> zbus::Result<(
-        u32,
-        zbus::zvariant::OwnedObjectPath,
-        String,
-        zbus::zvariant::OwnedObjectPath,
-        String,
-        Vec<(
-            u32,
-            zbus::zvariant::OwnedObjectPath,
-            String,
-            zbus::zvariant::OwnedObjectPath,
-            String,
-        )>,
-    )>;
+    fn enqueue_job(&self, job_type: &str, job_mode: &str) -> zbus::Result<(Job, Vec<Job>)>;
 
     /// Kill method
     fn kill(&self, whom: &str, signal: i32) -> zbus::Result<()>;
@@ -89,7 +74,7 @@ trait Unit {
 
     /// ActivationDetails property
     #[dbus_proxy(property)]
-    fn activation_details(&self) -> zbus::Result<Vec<(String, String)>>;
+    fn activation_details(&self) -> zbus::Result<Vec<KeyValue<String, String>>>;
 
     /// ActiveEnterTimestamp property
     #[dbus_proxy(property)]
@@ -109,7 +94,7 @@ trait Unit {
 
     /// ActiveState property
     #[dbus_proxy(property)]
-    fn active_state(&self) -> zbus::Result<String>;
+    fn active_state(&self) -> zbus::Result<ActiveState>;
 
     /// After property
     #[dbus_proxy(property)]
@@ -131,9 +116,10 @@ trait Unit {
     #[dbus_proxy(property)]
     fn assert_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
-    /// Asserts property
-    #[dbus_proxy(property)]
-    fn asserts(&self) -> zbus::Result<Vec<(String, bool, bool, String, i32)>>;
+    // TODO: Make struct for return type, but what do the fields mean?
+    // /// Asserts property
+    // #[dbus_proxy(property)]
+    // fn asserts(&self) -> zbus::Result<Vec<(String, bool, bool, String, i32)>>;
 
     /// Before property
     #[dbus_proxy(property)]
@@ -187,9 +173,10 @@ trait Unit {
     #[dbus_proxy(property)]
     fn condition_timestamp_monotonic(&self) -> zbus::Result<u64>;
 
-    /// Conditions property
-    #[dbus_proxy(property)]
-    fn conditions(&self) -> zbus::Result<Vec<(String, bool, bool, String, i32)>>;
+    // TODO: Make struct for return type, but what do the fields mean?
+    // /// Conditions property
+    // #[dbus_proxy(property)]
+    // fn conditions(&self) -> zbus::Result<Vec<(String, bool, bool, String, i32)>>;
 
     /// ConflictedBy property
     #[dbus_proxy(property)]
