@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::Exec;
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Socket",
     default_service = "org.freedesktop.systemd1"
@@ -250,27 +252,19 @@ trait Socket {
 
     /// ExecStartPost property
     #[dbus_proxy(property)]
-    fn exec_start_post(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_start_post(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStartPre property
     #[dbus_proxy(property)]
-    fn exec_start_pre(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_start_pre(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStopPost property
     #[dbus_proxy(property)]
-    fn exec_stop_post(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_stop_post(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStopPre property
     #[dbus_proxy(property)]
-    fn exec_stop_pre(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_stop_pre(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExtensionDirectories property
     #[dbus_proxy(property)]
