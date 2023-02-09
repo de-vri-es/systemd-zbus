@@ -345,3 +345,35 @@ pub struct Change {
     /// Destination of the symlink
     symlink_dest: String,
 }
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
+#[zvariant(signature = "s")]
+pub enum PathWatchCondition {
+    Exists,
+    ExistsGlob,
+    Changed,
+    Modified,
+    DirectoryNotEmpty,
+}
+enum_impl_str_conv!(PathWatchCondition, {
+    "PathExists": Exists,
+    "PathExistsGlob": ExistsGlob,
+    "PathChanged": Changed,
+    "PathModified": Modified,
+    "PathDirectoryNotEmpty": DirectoryNotEmpty,
+});
+enum_impl_serde_str!(PathWatchCondition);
+impl_value_conversions_as_str!(PathWatchCondition);
+
+/// A path watch specification for a Path unit.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct PathWatch {
+    /// The condition to watch for.
+    pub condition: PathWatchCondition,
+
+    /// The path to watch.
+    ///
+    /// If the condition is [`ExistsGlob`][PathWatchCondition::ExistsGlob],
+    /// the path is a glob pattern.
+    pub path: String,
+}

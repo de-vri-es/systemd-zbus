@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::PathWatch;
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Path",
     default_service = "org.freedesktop.systemd1"
@@ -36,7 +38,7 @@ trait Path {
 
     /// Paths property
     #[dbus_proxy(property)]
-    fn paths(&self) -> zbus::Result<Vec<(String, String)>>;
+    fn paths(&self) -> zbus::Result<Vec<PathWatch>>;
 
     /// Result property
     #[dbus_proxy(property)]
