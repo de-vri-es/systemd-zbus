@@ -214,15 +214,11 @@ trait Swap {
 
     /// ExecActivate property
     #[dbus_proxy(property)]
-    fn exec_activate(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_activate(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecDeactivate property
     #[dbus_proxy(property)]
-    fn exec_deactivate(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_deactivate(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecPaths property
     #[dbus_proxy(property)]

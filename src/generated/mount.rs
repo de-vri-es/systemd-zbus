@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::Exec;
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Mount",
     default_service = "org.freedesktop.systemd1"
@@ -218,9 +220,7 @@ trait Mount {
 
     /// ExecMount property
     #[dbus_proxy(property)]
-    fn exec_mount(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_mount(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecPaths property
     #[dbus_proxy(property)]
@@ -228,9 +228,7 @@ trait Mount {
 
     /// ExecRemount property
     #[dbus_proxy(property)]
-    fn exec_remount(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_remount(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecSearchPath property
     #[dbus_proxy(property)]
@@ -238,9 +236,7 @@ trait Mount {
 
     /// ExecUnmount property
     #[dbus_proxy(property)]
-    fn exec_unmount(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_unmount(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExtensionDirectories property
     #[dbus_proxy(property)]

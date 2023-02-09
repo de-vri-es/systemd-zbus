@@ -21,6 +21,8 @@
 
 use zbus::dbus_proxy;
 
+use crate::Exec;
+
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Service",
     default_service = "org.freedesktop.systemd1"
@@ -241,9 +243,7 @@ trait Service {
 
     /// ExecCondition property
     #[dbus_proxy(property)]
-    fn exec_condition(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_condition(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecConditionEx property
     #[dbus_proxy(property)]
@@ -298,9 +298,7 @@ trait Service {
 
     /// ExecReload property
     #[dbus_proxy(property)]
-    fn exec_reload(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_reload(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecReloadEx property
     #[dbus_proxy(property)]
@@ -327,9 +325,7 @@ trait Service {
 
     /// ExecStart property
     #[dbus_proxy(property)]
-    fn exec_start(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_start(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStartEx property
     #[dbus_proxy(property)]
@@ -352,9 +348,7 @@ trait Service {
 
     /// ExecStartPost property
     #[dbus_proxy(property)]
-    fn exec_start_post(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_start_post(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStartPostEx property
     #[dbus_proxy(property)]
@@ -377,9 +371,7 @@ trait Service {
 
     /// ExecStartPre property
     #[dbus_proxy(property)]
-    fn exec_start_pre(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_start_pre(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStartPreEx property
     #[dbus_proxy(property)]
@@ -402,9 +394,7 @@ trait Service {
 
     /// ExecStop property
     #[dbus_proxy(property)]
-    fn exec_stop(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_stop(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStopEx property
     #[dbus_proxy(property)]
@@ -427,9 +417,7 @@ trait Service {
 
     /// ExecStopPost property
     #[dbus_proxy(property)]
-    fn exec_stop_post(
-        &self,
-    ) -> zbus::Result<Vec<(String, Vec<String>, bool, u64, u64, u64, u64, u32, i32, i32)>>;
+    fn exec_stop_post(&self) -> zbus::Result<Vec<Exec>>;
 
     /// ExecStopPostEx property
     #[dbus_proxy(property)]
