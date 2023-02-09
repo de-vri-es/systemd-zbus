@@ -411,3 +411,61 @@ pub struct Exec {
     /// The last status of the process.
     pub last_status: i32,
 }
+
+/// A realtime calendar specification.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct TimerCalendar {
+    /// The timer base.
+    pub base: TimerCalendarBase,
+
+    /// The calendar specification string.
+    pub calendar_spec: String,
+
+    /// The next elapsation point on the realtime clock.
+    pub next_elapse_realtime_usec: u64,
+}
+
+/// A calender timer base.
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
+#[zvariant(signature = "s")]
+pub enum TimerCalendarBase {
+    OnCalendar,
+}
+enum_impl_str_conv!(TimerCalendarBase, {
+    "OnCalendar": OnCalendar,
+});
+enum_impl_serde_str!(TimerCalendarBase);
+impl_value_conversions_as_str!(TimerCalendarBase);
+
+/// A realtime calendar specification.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct TimerMonotonic {
+    /// The timer base.
+    pub base: TimerMonotonicBase,
+
+    /// The timer offset relative to the timer base.
+    pub offset_usec: u64,
+
+    /// The next elapsation point on the realtime clock.
+    pub next_elapse_realtime_usec: u64,
+}
+
+/// A monotonic timer base.
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
+#[zvariant(signature = "s")]
+pub enum TimerMonotonicBase {
+    OnActiveUSec,
+    OnBootUSec,
+    OnStartupUSec,
+    OnUnitActiveUSec,
+    OnUnitInactiveUSec,
+}
+enum_impl_str_conv!(TimerMonotonicBase, {
+    "OnActiveUSec": OnActiveUSec,
+    "OnBootUSec": OnBootUSec,
+    "OnStartupUSec": OnStartupUSec,
+    "OnUnitActiveUSec": OnUnitActiveUSec,
+    "OnUnitInactiveUSec": OnUnitInactiveUSec,
+});
+enum_impl_serde_str!(TimerMonotonicBase);
+impl_value_conversions_as_str!(TimerMonotonicBase);
