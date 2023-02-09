@@ -35,7 +35,7 @@ macro_rules! enum_impl_serde_str {
 }
 
 #[macro_export]
-macro_rules! impl_try_from_owned_as_str {
+macro_rules! impl_value_conversions_as_str {
     ($type_name:ident) => {
         impl TryFrom<zbus::zvariant::OwnedValue> for $type_name {
             type Error = zbus::Error;
@@ -44,6 +44,39 @@ macro_rules! impl_try_from_owned_as_str {
                 use std::str::FromStr;
                 let value = <String>::try_from(value)?;
                 return Ok($type_name::from_str(value.as_str())?);
+            }
+        }
+        impl<'a> TryFrom<zbus::zvariant::Value<'a>> for $type_name {
+            type Error = zbus::Error;
+
+            fn try_from(value: zbus::zvariant::Value<'a>) -> Result<Self, zbus::Error> {
+                use std::str::FromStr;
+                let value = <zbus::zvariant::Str>::try_from(value)?;
+                return Ok($type_name::from_str(value.as_str())?);
+            }
+        }
+        impl<'a> From<&'a $type_name> for zbus::zvariant::OwnedValue {
+            fn from(value: &'a $type_name) -> Self {
+                let string: &str = value.into();
+                zbus::zvariant::Str::from(string).into()
+            }
+        }
+        impl From<$type_name> for zbus::zvariant::OwnedValue {
+            fn from(value: $type_name) -> Self {
+                let string: &str = value.into();
+                zbus::zvariant::Str::from(string).into()
+            }
+        }
+        impl<'a> From<&'a $type_name> for zbus::zvariant::Value<'a> {
+            fn from(value: &'a $type_name) -> Self {
+                let string: &str = value.into();
+                zbus::zvariant::Str::from(string).into()
+            }
+        }
+        impl<'a> From<$type_name> for zbus::zvariant::Value<'a> {
+            fn from(value: $type_name) -> Self {
+                let string: &str = value.into();
+                zbus::zvariant::Str::from(string).into()
             }
         }
     };

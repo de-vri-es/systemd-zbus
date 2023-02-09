@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use zbus::zvariant::{OwnedObjectPath, OwnedValue, Type, Value};
 
-use crate::{enum_impl_serde_str, enum_impl_str_conv, impl_try_from_owned_as_str};
+use crate::{enum_impl_serde_str, enum_impl_str_conv, impl_value_conversions_as_str};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
 pub enum UnitType {
@@ -32,7 +32,7 @@ enum_impl_str_conv!(UnitType, {
     "scope": Scope,
 });
 enum_impl_serde_str!(UnitType);
-impl_try_from_owned_as_str!(UnitType);
+impl_value_conversions_as_str!(UnitType);
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type, Serialize, Deserialize)]
 pub enum UnitFileFlags {
@@ -68,7 +68,7 @@ enum_impl_str_conv!(Mode, {
     "ignore-requirements": IgnoreRequirements,
 });
 enum_impl_serde_str!(Mode);
-impl_try_from_owned_as_str!(Mode);
+impl_value_conversions_as_str!(Mode);
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
 #[zvariant(signature = "s")]
@@ -92,7 +92,7 @@ enum_impl_str_conv!(LoadState, {
     "masked": Masked,
 });
 enum_impl_serde_str!(LoadState);
-impl_try_from_owned_as_str!(LoadState);
+impl_value_conversions_as_str!(LoadState);
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
 #[zvariant(signature = "s")]
@@ -116,7 +116,7 @@ enum_impl_str_conv!(ActiveState, {
     "maintenance" : Maintenance,
 });
 enum_impl_serde_str!(ActiveState);
-impl_try_from_owned_as_str!(ActiveState);
+impl_value_conversions_as_str!(ActiveState);
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
 #[zvariant(signature = "s")]
@@ -145,7 +145,7 @@ enum_impl_str_conv!(UnitFileState, {
 
 });
 enum_impl_serde_str!(UnitFileState);
-impl_try_from_owned_as_str!(UnitFileState);
+impl_value_conversions_as_str!(UnitFileState);
 
 /// The `SubState` of a unit is specific to the unit type, it is best to run
 /// ```ignore
@@ -248,7 +248,7 @@ enum_impl_str_conv!(SubState, {
     "elapsed": Elapsed,
 });
 enum_impl_serde_str!(SubState);
-impl_try_from_owned_as_str!(SubState);
+impl_value_conversions_as_str!(SubState);
 
 #[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize)]
 pub struct Unit {
@@ -335,7 +335,7 @@ enum_impl_str_conv!(ChangeType, {
     "unlink": Unlink,
 });
 enum_impl_serde_str!(ChangeType);
-impl_try_from_owned_as_str!(ChangeType);
+impl_value_conversions_as_str!(ChangeType);
 
 #[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize)]
 pub struct Change {
