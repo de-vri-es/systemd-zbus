@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::{BindMount, DirectorySymlink, Exec, Process};
+use crate::{BindMount, DirectorySymlink, Exec, ExtensionImage, MountImage, Process};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Service",
@@ -448,7 +448,7 @@ trait Service {
 
     /// ExtensionImages property
     #[dbus_proxy(property)]
-    fn extension_images(&self) -> zbus::Result<Vec<(String, bool, Vec<(String, String)>)>>;
+    fn extension_images(&self) -> zbus::Result<Vec<ExtensionImage>>;
 
     /// FileDescriptorStoreMax property
     #[dbus_proxy(property)]
@@ -828,7 +828,7 @@ trait Service {
 
     /// MountImages property
     #[dbus_proxy(property)]
-    fn mount_images(&self) -> zbus::Result<Vec<(String, String, bool, Vec<(String, String)>)>>;
+    fn mount_images(&self) -> zbus::Result<Vec<MountImage>>;
 
     /// NFileDescriptorStore property
     #[dbus_proxy(property, name = "NFileDescriptorStore")]
