@@ -515,3 +515,42 @@ pub struct DirectorySymlink {
     /// Flags, currently unused.
     pub flags: u64,
 }
+
+/// Definition of mount image.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct MountImage {
+    /// The path of the image or block device.
+    pub image_path: String,
+
+    /// The mount point for the root filesystem of the image.
+    pub mount_point: String,
+
+    /// Ignore the extension image if the path does not exist.
+    pub ignore_non_existing: bool,
+
+    /// Mount options for the image.
+    pub mount_options: Vec<PartitionMountOptions>,
+}
+
+/// Mount options for a partition from an image.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct PartitionMountOptions {
+    /// The partition to apply the mount options to.
+    pub partition: String,
+
+    /// The mount options.
+    pub mount_options: String,
+}
+
+/// Definition of an extension image.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct ExtensionImage {
+    /// The path of the image or block device.
+    pub image_path: String,
+
+    /// Ignore the extension image if the path does not exist.
+    pub ignore_non_existing: bool,
+
+    /// Mount options for the image.
+    pub mount_options: Vec<PartitionMountOptions>,
+}

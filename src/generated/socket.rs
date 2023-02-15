@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::{DirectorySymlink, Exec, Process};
+use crate::{DirectorySymlink, Exec, ExtensionImage, MountImage, Process};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Socket",
@@ -272,7 +272,7 @@ trait Socket {
 
     /// ExtensionImages property
     #[dbus_proxy(property)]
-    fn extension_images(&self) -> zbus::Result<Vec<(String, bool, Vec<(String, String)>)>>;
+    fn extension_images(&self) -> zbus::Result<Vec<ExtensionImage>>;
 
     /// FileDescriptorName property
     #[dbus_proxy(property)]
@@ -700,7 +700,7 @@ trait Socket {
 
     /// MountImages property
     #[dbus_proxy(property)]
-    fn mount_images(&self) -> zbus::Result<Vec<(String, String, bool, Vec<(String, String)>)>>;
+    fn mount_images(&self) -> zbus::Result<Vec<MountImage>>;
 
     /// NAccepted property
     #[dbus_proxy(property, name = "NAccepted")]

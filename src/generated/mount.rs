@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::{BindMount, DirectorySymlink, Exec, Process};
+use crate::{BindMount, DirectorySymlink, Exec, ExtensionImage, MountImage, Process};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Mount",
@@ -244,7 +244,7 @@ trait Mount {
 
     /// ExtensionImages property
     #[dbus_proxy(property)]
-    fn extension_images(&self) -> zbus::Result<Vec<(String, bool, Vec<(String, String)>)>>;
+    fn extension_images(&self) -> zbus::Result<Vec<ExtensionImage>>;
 
     /// FinalKillSignal property
     #[dbus_proxy(property)]
@@ -620,7 +620,7 @@ trait Mount {
 
     /// MountImages property
     #[dbus_proxy(property)]
-    fn mount_images(&self) -> zbus::Result<Vec<(String, String, bool, Vec<(String, String)>)>>;
+    fn mount_images(&self) -> zbus::Result<Vec<MountImage>>;
 
     /// NUMAMask property
     #[dbus_proxy(property, name = "NUMAMask")]
