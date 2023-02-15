@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::{Change, EnquedJob, Job, LoadState, Mode, Unit, UnitFileFlags, UnitFileState};
+use crate::{Change, EnquedJob, Job, LoadState, Mode, Process, Unit, UnitFileFlags, UnitFileState};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Manager",
@@ -159,7 +159,7 @@ trait Manager {
     fn get_unit_file_state(&self, file: &str) -> zbus::Result<UnitFileState>;
 
     /// GetUnitProcesses method
-    fn get_unit_processes(&self, name: &str) -> zbus::Result<Vec<(String, u32, String)>>;
+    fn get_unit_processes(&self, name: &str) -> zbus::Result<Vec<Process>>;
 
     /// Halt method
     fn halt(&self) -> zbus::Result<()>;
