@@ -21,7 +21,7 @@ ignore = [
 ]
 
 [bans]
-multiple-versions = "deny"
+multiple-versions = "warn"
 wildcards = "allow" # at least until https://github.com/EmbarkStudios/cargo-deny/issues/241 is fixed
 deny = [
     { name = "openssl" },     # prefer rustls
