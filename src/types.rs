@@ -396,11 +396,54 @@ pub struct Exec {
     /// The last start time of the process in microseconds on the monotonic clock, or 0 if it was never started yet.
     pub last_start_monotonic_us: u64,
 
-    /// The last finish time of the process in microseconds on the realtime clock, or 0 if it never finished yet.
-    pub last_finish_realtime_us: u64,
+    /// The last exit time of the process in microseconds on the realtime clock, or 0 if it never finished yet.
+    pub last_exit_realtime_us: u64,
 
-    /// The last finish time of the process in microseconds on the monotonic clock, or 0 if it never finished yet.
-    pub last_finish_monotonic_us: u64,
+    /// The last exit time of the process in microseconds on the monotonic clock, or 0 if it never finished yet.
+    pub last_exit_monotonic_us: u64,
+
+    /// The PID of the process, or 0 if it was never started yet.
+    pub pid: u32,
+
+    /// The last exit code of the process.
+    pub last_exit_code: i32,
+
+    /// The last status of the process.
+    pub last_status: i32,
+}
+
+/// An exec command, augmented with runtime data.
+#[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize, Value, OwnedValue)]
+pub struct ExecEx {
+    /// The binary to run.
+    pub binary_path: String,
+
+    /// The arguments to the binary, including argv[0].
+    pub arguments: Vec<String>,
+
+    /// List of options.
+    ///
+    /// This can include the following options:
+    ///   "ignore-failure"
+    ///   "privileged"
+    ///   "no-setuid"
+    ///   "ambient"
+    ///   "no-env-expand"
+    ///
+    /// More options may be added by systemd in future releases.
+    pub options: Vec<String>,
+
+    /// The last start time of the process in microseconds on the realtime clock, or 0 if it was never started yet.
+    pub last_start_realtime_us: u64,
+
+    /// The last start time of the process in microseconds on the monotonic clock, or 0 if it was never started yet.
+    pub last_start_monotonic_us: u64,
+
+    /// The last exit time of the process in microseconds on the realtime clock, or 0 if it never finished yet.
+    pub last_exit_realtime_us: u64,
+
+    /// The last finexitme of the process in microseconds on the monotonic clock, or 0 if it never finished yet.
+    pub last_exit_monotonic_us: u64,
 
     /// The PID of the process, or 0 if it was never started yet.
     pub pid: u32,
