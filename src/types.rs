@@ -384,7 +384,7 @@ pub struct Exec {
     /// The binary to run.
     pub binary_path: String,
 
-    /// The arguments to the binary, including argv[0].
+    /// The arguments to the binary, including `argv[0]`.
     pub arguments: Vec<String>,
 
     /// If true, it is considered a failure if the process exits uncleanly.
@@ -418,7 +418,7 @@ pub struct ExecEx {
     /// The binary to run.
     pub binary_path: String,
 
-    /// The arguments to the binary, including argv[0].
+    /// The arguments to the binary, including `argv[0]`.
     pub arguments: Vec<String>,
 
     /// List of options.
