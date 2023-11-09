@@ -21,7 +21,7 @@
 
 use zbus::dbus_proxy;
 
-use crate::{Job, KeyValue};
+use crate::{Job, JobState, JobType, KeyValue};
 
 #[dbus_proxy(
     interface = "org.freedesktop.systemd1.Job",
@@ -47,11 +47,11 @@ trait Job {
 
     /// JobType property
     #[dbus_proxy(property)]
-    fn job_type(&self) -> zbus::Result<String>;
+    fn job_type(&self) -> zbus::Result<JobType>;
 
     /// State property
     #[dbus_proxy(property)]
-    fn state(&self) -> zbus::Result<String>;
+    fn state(&self) -> zbus::Result<JobState>;
 
     /// Unit property
     #[dbus_proxy(property)]

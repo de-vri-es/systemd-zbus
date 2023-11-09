@@ -281,14 +281,55 @@ pub struct Job {
     /// The primary unit name for this job
     pub unit_name: String,
     /// The job type
-    pub job_type: String,
+    pub job_type: JobType,
     /// The job state
-    pub job_state: String,
+    pub job_state: JobState,
     /// The job object path
     pub job_path: OwnedObjectPath,
     /// The job unit path
     pub unit_path: OwnedObjectPath,
 }
+
+/// The type of a job.
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
+#[zvariant(signature = "s")]
+pub enum JobType {
+    Start,
+    VerifyActive,
+    Stop,
+    Reload,
+    Restart,
+    TryRestart,
+    ReloadOrStart,
+}
+enum_impl_str_conv!(JobType, {
+    "start": Start,
+    "verify-active": VerifyActive,
+    "stop": Stop,
+    "reload": Reload,
+    "restart": Restart,
+    "try-restart": TryRestart,
+    "reload-or-start": ReloadOrStart,
+});
+enum_impl_serde_str!(JobType);
+impl_value_conversions_as_str!(JobType);
+
+/// The state of a job.
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Type)]
+#[zvariant(signature = "s")]
+pub enum JobState {
+    /// The job is waiting for another job to complete.
+    Waiting,
+
+    /// The job is running.
+    Running,
+}
+enum_impl_str_conv!(JobState, {
+    "waiting": Waiting,
+    "running": Running,
+});
+enum_impl_serde_str!(JobState);
+impl_value_conversions_as_str!(JobState);
 
 #[derive(Debug, PartialEq, Eq, Clone, Type, Serialize, Deserialize)]
 pub struct EnquedJob {
