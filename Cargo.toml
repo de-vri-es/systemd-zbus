@@ -13,8 +13,8 @@ keywords = ["systemd", "systemd", "zbus"]
 categories = ["os::unix-apis"]
 
 [dependencies]
-serde = "^1.0"
-zbus = "~3.14.0"
+serde = "1.0.196"
+zbus = "3.15.0"
 
 [dev-dependencies]
 futures-lite = "1.12.0"
